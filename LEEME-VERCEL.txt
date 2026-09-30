@@ -1,0 +1,43 @@
+OPINIONES EN VERCEL — pasos (se hacen UNA sola vez)
+====================================================
+
+1) SUBIR A GITHUB
+   Reemplaza en tu repositorio con el contenido de este ZIP (mantén la misma estructura):
+     api/            (carpeta nueva: el "servidor" de las opiniones)
+     js/resenas.js   (nuevo)   js/app.js   index.html   css/styles.css   (modificados)
+     vercel.json  package.json  package-lock.json  .vercelignore  .gitignore  (nuevos)
+   NO subas la carpeta node_modules.
+   Vercel detecta el cambio y vuelve a publicar solo.
+
+2) CREAR LA BASE DE DATOS (gratis)
+   Vercel → tu proyecto "ecuador-patrimonio-vivo" → pestaña "Storage"
+   → "Create Database" → elige "Neon" (Postgres) → plan gratuito → "Connect Project"
+   (marca tu proyecto y todos los entornos: Production, Preview, Development).
+   Vercel crea solo la variable DATABASE_URL. No tienes que copiar nada.
+
+3) PUBLICAR DE NUEVO
+   Las variables solo se aplican a despliegues nuevos:
+   Vercel → pestaña "Deployments" → los tres puntos del último → "Redeploy".
+
+4) COMPROBAR
+   Abre  https://ecuador-patrimonio-vivo.vercel.app/api/resumen
+   Debe mostrar   {}   (vacío = funciona, aún no hay opiniones).
+   Luego entra al sitio, abre un lugar y envía una opinión de prueba.
+
+MODERAR / VER LAS OPINIONES
+   Neon (desde Vercel → Storage → tu base → "Open in Neon") → "SQL Editor":
+     SELECT * FROM resenas ORDER BY id DESC;      -- ver todas
+     DELETE FROM resenas WHERE id = 5;            -- borrar una
+   La tabla se crea sola con la primera visita; no hay que crearla a mano.
+
+VARIABLE OPCIONAL
+   IP_SALT = cualquier texto largo (Vercel → Settings → Environment Variables).
+   Refuerza la privacidad del hash de IP usado contra spam.
+
+PRIVACIDAD
+   No se guarda la IP: solo un hash (SHA-256) para limitar spam
+   (1 opinión por lugar cada 24 h, máximo 8 por hora), y se borra a los 2 días.
+
+USO LOCAL (opcional, sin Vercel)
+   node server.js  →  http://localhost:3000   (usa un SQLite local, Node 22.5+).
+   Es una base distinta a la de Vercel: sirve solo para probar en tu computadora.

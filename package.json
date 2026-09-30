@@ -1,0 +1,12 @@
+{
+  "name": "ecuador-patrimonio-vivo",
+  "version": "1.2.0",
+  "description": "Ecuador Patrimonio Vivo — sitio turístico y cultural con calificaciones y comentarios",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  }
+}

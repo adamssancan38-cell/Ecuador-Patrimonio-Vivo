@@ -89,6 +89,7 @@ function renderizarTarjetas(lugares) {
 
   grid.appendChild(fragmento);
   actualizarContador(lugares.length);
+  window.Resenas?.pintarTarjetas();   // ★ promedio (resenas.js)
 }
 
 /**
@@ -123,6 +124,7 @@ function crearTarjeta(lugar) {
         </svg>
         ${lugar.provincia}
       </p>
+      <p class="tarjeta__valoracion" data-valoracion="${lugar.id}"></p>
       <p class="tarjeta__descripcion">${lugar.descripcion.substring(0, 110)}${lugar.descripcion.length > 110 ? "…" : ""}</p>
       <div class="tarjeta__pie">
         <span class="tarjeta__patrimonio-tag" aria-label="Tiene patrimonio cultural asociado">🏛️ Patrimonio</span>
@@ -452,6 +454,8 @@ function abrirModal(id) {
 
       ${relatoHTML}
 
+      <section class="modal__resenas" id="resenas-seccion" aria-label="Opiniones de visitantes"></section>
+
       <div class="modal__acciones" role="group" aria-label="Acciones del lugar">
         <a href="${urlBooking}" target="_blank" rel="noopener noreferrer"
            class="btn btn--booking"
@@ -469,6 +473,9 @@ function abrirModal(id) {
         <small>📡 Coordenadas: ${lugar.latitud}°, ${lugar.longitud}°</small>
       </p>
     </div>`;
+
+  // Sección de calificaciones y comentarios (resenas.js)
+  window.Resenas?.montar(document.getElementById("resenas-seccion"), lugar.id);
 
   // Mostrar overlay
   overlay.classList.add("visible");

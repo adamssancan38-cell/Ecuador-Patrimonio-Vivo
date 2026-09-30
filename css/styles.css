@@ -1823,3 +1823,128 @@ h1, h2, h3, h4 {
 @media (hover: none) {
   .tarjeta:hover { transform: none; }
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   OPINIONES Y CALIFICACIONES (resenas.js)
+   ═══════════════════════════════════════════════════════ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+:root { --estrella-on: #f5a300; --estrella-off: #d3d3dc; }
+.modo-oscuro { --estrella-off: #3a4158; }
+
+/* Estrellas con relleno proporcional (0–100 %) */
+.estrellas {
+  --pct: 0%;
+  display: inline-block;
+  font-size: 1.05em;
+  line-height: 1;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--estrella-on) var(--pct), var(--estrella-off) var(--pct));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+  white-space: nowrap;
+}
+
+/* Promedio en la tarjeta */
+.tarjeta__valoracion { display: none; font-size: 0.85rem; color: var(--texto-secundario); }
+.tarjeta__valoracion--visible { display: flex; align-items: center; gap: var(--espacio-xs); }
+.tarjeta__valoracion-total { color: var(--texto-suave); }
+
+/* Sección en el modal */
+.modal__resenas { border-top: 1px solid var(--borde); padding-top: var(--espacio-lg); }
+
+.resenas__resumen {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--espacio-lg); margin-bottom: var(--espacio-lg);
+}
+.resenas__cargando, .resenas__vacio { color: var(--texto-secundario); font-size: 0.95rem; }
+.resenas__error {
+  color: var(--color-rojo); font-size: 0.9rem; line-height: 1.6;
+  background: rgba(200,16,46,0.07); border-radius: var(--radio-md);
+  padding: var(--espacio-sm) var(--espacio-md);
+}
+.modo-oscuro .resenas__error { color: #ff8a9b; }
+
+.resenas__promedio { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 110px; }
+.resenas__promedio-num { font-family: var(--fuente-titulo); font-size: 2.6rem; font-weight: 700; line-height: 1; color: var(--texto-principal); }
+.resenas__promedio .estrellas { font-size: 1.25rem; }
+.resenas__promedio-total { font-size: 0.8rem; color: var(--texto-suave); }
+
+.resenas__barras { list-style: none; flex: 1 1 200px; display: grid; gap: 4px; min-width: 0; }
+.resenas__barras li { display: grid; grid-template-columns: 2.2rem 1fr 1.8rem; align-items: center; gap: var(--espacio-sm); font-size: 0.78rem; color: var(--texto-suave); }
+.resenas__barra { height: 8px; border-radius: var(--radio-full); background: var(--estrella-off); overflow: hidden; }
+.resenas__barra > span { display: block; height: 100%; background: var(--estrella-on); border-radius: inherit; }
+.resenas__barra-c { text-align: right; }
+
+/* Formulario */
+.resenas__form {
+  background: rgba(0,61,165,0.04);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-md);
+  padding: var(--espacio-lg);
+  display: grid; gap: var(--espacio-md);
+}
+.modo-oscuro .resenas__form { background: rgba(255,255,255,0.03); }
+.resenas__form-titulo { font-size: 1rem; color: var(--texto-principal); }
+
+.resenas__estrellas { border: 0; min-width: 0; }
+.resenas__estrellas legend { font-size: 0.9rem; font-weight: 600; color: var(--texto-secundario); margin-bottom: var(--espacio-xs); }
+.resenas__estrellas-grupo { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: 2px; }
+.resenas__estrellas-grupo input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.resenas__estrellas-grupo label {
+  font-size: 2.2rem; line-height: 1; padding: 2px 3px; cursor: pointer;
+  color: var(--estrella-off); transition: color 0.15s, transform 0.15s;
+  min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+}
+.resenas__estrellas-grupo input:checked ~ label,
+.resenas__estrellas-grupo label:hover,
+.resenas__estrellas-grupo label:hover ~ label { color: var(--estrella-on); }
+.resenas__estrellas-grupo label:hover { transform: scale(1.12); }
+.resenas__estrellas-grupo input:focus-visible + label { outline: 3px solid var(--color-azul-claro); outline-offset: 2px; border-radius: var(--radio-sm); }
+
+.resenas__campo { display: grid; gap: var(--espacio-xs); }
+.resenas__campo label { font-size: 0.9rem; font-weight: 600; color: var(--texto-secundario); }
+.resenas__opcional { font-weight: 400; color: var(--texto-suave); font-size: 0.82rem; }
+.resenas__campo textarea,
+.resenas__campo input {
+  width: 100%; font: inherit; font-size: 0.95rem; padding: 0.65rem 0.8rem;
+  border: 2px solid var(--borde); border-radius: var(--radio-md);
+  background: var(--fondo-alt); color: var(--texto-principal);
+}
+.resenas__campo textarea { resize: vertical; min-height: 5rem; }
+.resenas__campo textarea:focus,
+.resenas__campo input:focus { outline: none; border-color: var(--color-azul-claro); }
+.resenas__contador { justify-self: end; color: var(--texto-suave); font-size: 0.75rem; }
+
+.resenas__trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.resenas__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-md); }
+.resenas__estado { font-size: 0.9rem; color: var(--texto-secundario); }
+.resenas__estado--ok { color: var(--color-verde); font-weight: 600; }
+.resenas__estado--error { color: var(--color-rojo); font-weight: 600; }
+.modo-oscuro .resenas__estado--ok { color: #6fcf7a; }
+.modo-oscuro .resenas__estado--error { color: #ff8a9b; }
+
+/* Lista de opiniones */
+.resenas__lista-wrap { margin-top: var(--espacio-lg); }
+.resenas__lista { list-style: none; display: grid; gap: var(--espacio-md); }
+.resena { padding-bottom: var(--espacio-md); border-bottom: 1px solid var(--borde); }
+.resena:last-child { border-bottom: 0; }
+.resena__cab { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-sm); }
+.resena__nombre { color: var(--texto-principal); font-size: 0.95rem; }
+.resena__fecha { margin-left: auto; font-size: 0.78rem; color: var(--texto-suave); }
+.resena__texto { margin-top: var(--espacio-xs); color: var(--texto-secundario); line-height: 1.65; font-size: 0.95rem; white-space: pre-line; overflow-wrap: anywhere; }
+.resenas__mas { margin-top: var(--espacio-md); }
+.resenas__mas[hidden] { display: none; }
+
+@media (max-width: 640px) {
+  .resenas__form { padding: var(--espacio-md); }
+  .resenas__estrellas-grupo label { font-size: 2rem; }
+  .resena__fecha { margin-left: 0; width: 100%; }
+}
