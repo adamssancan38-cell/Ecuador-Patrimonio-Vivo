@@ -630,15 +630,15 @@ function renderizarSobreProyecto() {
         <h3 class="proyecto-info__titulo">${PROYECTO.nombre}</h3>
         <p class="proyecto-info__slogan">"${PROYECTO.slogan}"</p>
         <div class="proyecto-bloque">
-          <h4>🎯 Objetivo</h4>
+          <h4>Objetivo</h4>
           <p>${PROYECTO.objetivo}</p>
         </div>
         <div class="proyecto-bloque">
-          <h4>👥 Público objetivo</h4>
+          <h4>Público objetivo</h4>
           <p>${PROYECTO.publicoObjetivo}</p>
         </div>
         <div class="proyecto-bloque">
-          <h4>✅ Beneficios</h4>
+          <h4>Beneficios</h4>
           <ul class="proyecto-beneficios">
             ${PROYECTO.beneficios.map(b => `<li>${b}</li>`).join("")}
           </ul>
