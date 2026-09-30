@@ -4,10 +4,25 @@
 "use strict";
 
 let _sql = null;
+
+/**
+ * Busca la cadena de conexión de Neon. Vercel puede ponerle un prefijo
+ * personalizado (ej. STORAGE_DATABASE_URL), así que si no existe
+ * DATABASE_URL se busca cualquier variable cuyo valor empiece con postgres://
+ */
+function urlBaseDatos() {
+  const e = process.env;
+  if (e.DATABASE_URL) return e.DATABASE_URL;
+  if (e.POSTGRES_URL) return e.POSTGRES_URL;
+  const candidatas = Object.entries(e).filter(([, v]) => /^postgres(ql)?:\/\//.test(v || ""));
+  const conPool = candidatas.find(([k]) => !/UNPOOLED|NON_POOLING|NO_SSL/i.test(k));
+  return (conPool || candidatas[0] || [])[1] || null;
+}
+
 function getSql() {
   if (!_sql) {
-    const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
-    if (!url) throw new Error("Falta la variable DATABASE_URL (conecta la base de datos Neon en Vercel → Storage).");
+    const url = urlBaseDatos();
+    if (!url) throw new Error("No se encontró la cadena de conexión de la base de datos (conecta Neon en Vercel → Storage y vuelve a publicar).");
     const { neon } = require("@neondatabase/serverless");
     _sql = neon(url);
   }
@@ -42,4 +57,4 @@ function envolver(metodo, fn) {
   };
 }
 
-module.exports = { getSql, ipDe, envolver };
+module.exports = { getSql, urlBaseDatos, ipDe, envolver };
