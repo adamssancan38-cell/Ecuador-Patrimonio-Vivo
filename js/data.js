@@ -260,10 +260,10 @@ const LUGARES = [
     patrimonio: "La medicina tradicional Tsáchila y el uso ritual del achiote para la pintura corporal son Patrimonio Cultural Inmaterial del Ecuador.",
     latitud: -0.2522,
     longitud: -79.1719,
-    imagen: "",
+    imagen: "img/tsachilas.jpg",
     busquedaImagen: ["Tsáchila Santo Domingo Ecuador", "Tsachila indigenous Ecuador", "Santo Domingo de los Tsáchilas"],
-    creditoImagen: "POR COMPLETAR",
-    licencia: "POR COMPLETAR",
+    creditoImagen: "Imagen proporcionada por el equipo del proyecto",
+    licencia: "Uso educativo",
     relato: null
   },
   {
@@ -660,9 +660,9 @@ const LUGARES = [
     patrimonio: "El pueblo Waorani y los grupos Tagaeri-Taromenane en aislamiento voluntario son Patrimonio Vivo de la humanidad; sus conocimientos del ecosistema amazónico son únicos e irremplazables.",
     latitud: -1.0000,
     longitud: -75.7500,
-    imagen: "",
-    creditoImagen: "POR COMPLETAR",
-    licencia: "POR COMPLETAR",
+    imagen: "img/yasuni.jpg",
+    creditoImagen: "Imagen proporcionada por el equipo del proyecto",
+    licencia: "Uso educativo",
     relato: null
   },
   {
@@ -674,9 +674,9 @@ const LUGARES = [
     patrimonio: "El río Napo fue navegado por Francisco de Orellana en 1542 en la primera expedición al Amazonas; ese viaje histórico es parte del patrimonio narrativo de Ecuador.",
     latitud: -0.4619,
     longitud: -76.9881,
-    imagen: "",
-    creditoImagen: "POR COMPLETAR",
-    licencia: "POR COMPLETAR",
+    imagen: "img/coca.jpg",
+    creditoImagen: "Imagen proporcionada por el equipo del proyecto",
+    licencia: "Uso educativo",
     relato: null
   },
 

@@ -513,7 +513,9 @@ function toggleModoOscuro() {
 function actualizarBotonModo() {
   const btn = document.getElementById("btn-modo");
   if (!btn) return;
-  btn.textContent = Estado.modoOscuro ? "☀️ Modo claro" : "🌙 Modo oscuro";
+  btn.innerHTML = Estado.modoOscuro
+    ? '<span class="modo-icono" aria-hidden="true">☀️</span><span class="modo-texto"> Modo claro</span>'
+    : '<span class="modo-icono" aria-hidden="true">🌙</span><span class="modo-texto"> Modo oscuro</span>';
   btn.setAttribute("aria-label", Estado.modoOscuro ? "Activar modo claro" : "Activar modo oscuro");
 }
 

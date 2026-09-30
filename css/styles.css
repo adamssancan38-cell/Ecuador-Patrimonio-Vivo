@@ -1691,3 +1691,102 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   19. OPTIMIZACIÓN PARA CELULARES (formato vertical)
+   Solo afecta a teléfonos: pantallas de menos de 768px de ancho,
+   o teléfonos girados en horizontal (poca altura y pantalla táctil).
+   Laptops, PCs y tablets conservan el diseño original.
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 767px),
+       (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-x: hidden; overflow-x: clip; }
+  img, video, svg { max-width: 100%; }
+
+  /* iOS hace zoom al enfocar campos con letra menor a 16px */
+  input, select, textarea { font-size: 16px; }
+
+  /* Encabezado: todo en una sola fila, sin desbordar */
+  .header__nav { display: none; }
+  .btn-menu { display: flex; align-items: center; justify-content: center; }
+  .header__inner {
+    gap: var(--espacio-sm);
+    padding: var(--espacio-xs) var(--espacio-md);
+    padding-left: max(var(--espacio-md), env(safe-area-inset-left));
+    padding-right: max(var(--espacio-md), env(safe-area-inset-right));
+    min-height: 56px;
+  }
+  .header__logo { min-width: 0; }
+  .header__logo-icono { font-size: 1.5rem; }
+  .header__logo-texto { font-size: 0.95rem; min-width: 0; }
+  .header__logo-sub { font-size: 0.65rem; }
+  .header__acciones { gap: var(--espacio-xs); }
+  .btn--modo {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; padding: 0;
+    border-radius: 50%; font-size: 1.15rem;
+  }
+  .btn--modo .modo-texto { display: none; }
+  .btn-menu { min-width: 44px; min-height: 44px; }
+  #menu-movil { padding: var(--espacio-sm) var(--espacio-lg); }
+  #menu-movil a { padding: 0.85rem 0; min-height: 44px; }
+
+  /* Portada */
+  .hero { min-height: 88vh; min-height: 88svh; }
+  .hero__ctas .btn { width: 100%; max-width: 320px; justify-content: center; }
+  .hero__stats { flex-wrap: wrap; justify-content: center; }
+
+  /* Lista de lugares: una columna que nunca se sale de la pantalla */
+  .grid-lugares { grid-template-columns: minmax(0, 1fr); gap: var(--espacio-lg); }
+
+  /* Ventana de detalle: hoja a pantalla completa, con scroll propio */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .modal {
+    max-width: 100%;
+    max-height: 94vh; max-height: 94dvh;
+    border-radius: var(--radio-xl) var(--radio-xl) 0 0;
+  }
+  #modal-contenido {
+    display: block;
+    height: auto;
+    max-height: 94vh; max-height: 94dvh;
+    overflow-y: auto;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .modal__imagen-wrap { height: auto; aspect-ratio: 16 / 10; position: relative; }
+  .modal__imagen { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radio-xl) var(--radio-xl) 0 0; }
+  .modal__imagen-wrap .placeholder-imagen { height: 100%; min-height: 0; border-radius: var(--radio-xl) var(--radio-xl) 0 0; }
+  .modal__info { height: auto; overflow: visible; padding-bottom: var(--espacio-xl); }
+  .modal__cerrar {
+    min-width: 44px; min-height: 44px;
+    top: max(var(--espacio-sm), env(safe-area-inset-top));
+  }
+  .modal__acciones .btn { min-height: 48px; justify-content: center; }
+
+  /* Filtros y sección "El Proyecto": nada puede ser más ancho que la pantalla */
+  .filtros__provincia { width: 100%; flex-wrap: wrap; }
+  .filtros__provincia select { flex: 1 1 180px; min-width: 0; max-width: 100%; min-height: 44px; }
+  .proyecto-grid { grid-template-columns: minmax(0, 1fr); }
+  .proyecto-grid > * { min-width: 0; }
+  .proyecto-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-card { padding-left: var(--espacio-sm); padding-right: var(--espacio-sm); min-width: 0; }
+  .stat-card__etiqueta { overflow-wrap: anywhere; }
+  h1, h2, h3, h4, p { overflow-wrap: anywhere; }
+
+  /* Botón de subir y pie de página respetan las barras del teléfono */
+  .btn-arriba {
+    bottom: max(var(--espacio-lg), env(safe-area-inset-bottom));
+    right: max(var(--espacio-lg), env(safe-area-inset-right));
+  }
+  .footer { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* En pantallas táctiles no hay "hover": evita tarjetas pegadas en estado elevado */
+@media (hover: none) {
+  .tarjeta:hover { transform: none; }
+}
