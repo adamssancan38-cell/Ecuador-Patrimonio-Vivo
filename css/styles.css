@@ -1122,6 +1122,24 @@ h1, h2, h3, h4 {
   font-size: 0.88rem;
 }
 
+/* Lista de integrantes */
+.proyecto-equipo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: var(--espacio-xs) var(--espacio-lg);
+}
+
+.proyecto-equipo li {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  padding: 0.45rem 0 0.45rem var(--espacio-md);
+  border-left: 3px solid var(--color-amarillo);
+  color: var(--texto-principal);
+}
+
 /* Stats cards */
 .proyecto-stats {
   display: grid;
@@ -1257,6 +1275,21 @@ h1, h2, h3, h4 {
   overflow: hidden;
   height: 14px;
   width: 42px;
+}
+/* Deja espacio a la derecha para que el botón flotante de subir no tape el escudo */
+@media (min-width: 768px) { .footer__base { padding-right: 64px; } }
+
+/* Franja de la bandera + escudo al lado */
+.footer__sello {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer__escudo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 .footer__bandera-banda {
   flex: 1;

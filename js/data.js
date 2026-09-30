@@ -823,8 +823,21 @@ const PROYECTO = {
     "Integra voces de moradores reales para humanizar el patrimonio.",
     "Es de código abierto y editable por estudiantes como herramienta educativa."
   ],
-  equipo: "Álvarez López Milena Nicole · Andrade Soledispa Abraham Gerardo · Jácome Granada César David · Paucar Salazar Jefferson Alexander · Peña Chica Byron Gabriel · Quiñonez Galarza Aarón Alexander · Ron Guerrero Johanna Gabriela · Sancan Sancan Adams Joel · Solina Acosta Ana Nicole · Villamarín Villamarín José Luis",
-  universidad: "Universidad Estatal de Milagro (UNEMI) · Facultad de Ciencias e Ingeniería (FACI) · Tecnología de la Información · Tercer semestre, curso C3",
+  // Integrantes del equipo: un nombre por línea, formato "Apellidos Nombres".
+  // Para agregar o quitar a alguien, copia o borra una línea completa
+  // (con sus comillas y la coma final). Se ordenan solos alfabéticamente.
+  equipo: [
+    "Acosta Solina Ana Nicole",
+    "Álvarez López Milena Nicole",
+    "Andrade Soledispa Abraham Gerardo",
+    "Jácome Granada César David",
+    "Paucar Salazar Jefferson Alexander",
+    "Peña Chica Byron Gabriel",
+    "Quiñonez Galarza Aarón Alexander",
+    "Ron Guerrero Johanna Gabriela",
+    "Sancan Sancan Adams Joel",
+    "Villamarín Villamarín José Luis"
+  ],  universidad: "Universidad Estatal de Milagro (UNEMI) · Facultad de Ciencias e Ingeniería (FACI) · Tecnología de la Información · Tercer semestre, curso C3",
   materia: "Apreciación del Arte y Cultura",
   anio: 2026
 };
