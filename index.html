@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ecuador Patrimonio Vivo — Sitio turístico y cultural de Ecuador. Descubre las 4 regiones, 24 provincias y el patrimonio cultural inmaterial de un país único." />
+  <meta name="theme-color" content="#003DA5" />
+
+  <!-- Open Graph (para compartir en redes sociales) -->
+  <meta property="og:title" content="Ecuador Patrimonio Vivo" />
+  <meta property="og:description" content="Descubre la riqueza cultural y turística del Ecuador en sus 4 regiones y 24 provincias." />
+  <meta property="og:type" content="website" />
+
+  <title>Ecuador Patrimonio Vivo — Turismo y Cultura</title>
+
+  <!-- Fuentes del sistema (sin carga externa para abrir offline) -->
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Favicon emoji (funciona en navegadores modernos) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇪🇨</text></svg>" />
+</head>
+<body>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  SKIP LINK (accesibilidad: saltar al contenido)      ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <a href="#contenido-principal" class="skip-link" style="
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--color-amarillo);
+    color: var(--color-azul);
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 8px 8px;
+    font-weight: bold;
+    z-index: 9999;
+    transition: top 0.2s;
+  " onfocus="this.style.top='0'">Saltar al contenido principal</a>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  HEADER — Barra de navegación fija                   ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <header class="header" role="banner">
+    <div class="header__inner contenedor">
+
+      <!-- Logo -->
+      <a href="#inicio" data-nav="inicio" class="header__logo" aria-label="Ecuador Patrimonio Vivo — Ir al inicio">
+        <span class="header__logo-icono" aria-hidden="true">🌿</span>
+        <span class="header__logo-texto">
+          Ecuador Patrimonio Vivo
+          <span class="header__logo-sub">Turismo &amp; Cultura</span>
+        </span>
+      </a>
+
+      <!-- Navegación escritorio -->
+      <nav class="header__nav" aria-label="Navegación principal">
+        <a data-nav="inicio" href="#inicio" role="link">Inicio</a>
+        <a data-nav="explorar" href="#explorar" role="link">Explorar</a>
+        <a data-nav="regiones" href="#regiones" role="link">Regiones</a>
+        <a data-nav="sobre-proyecto" href="#sobre-proyecto" role="link">El Proyecto</a>
+      </nav>
+
+      <!-- Acciones header -->
+      <div class="header__acciones">
+        <button class="btn--modo" id="btn-modo" aria-label="Activar modo oscuro">
+          🌙 Modo oscuro
+        </button>
+        <!-- Botón hamburguesa para móvil -->
+        <button class="btn-menu" id="btn-menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-movil">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <nav id="menu-movil" aria-label="Menú móvil">
+      <a data-nav="inicio" href="#inicio" role="link">🏠 Inicio</a>
+      <a data-nav="explorar" href="#explorar" role="link">🔍 Explorar lugares</a>
+      <a data-nav="regiones" href="#regiones" role="link">🗺️ Regiones</a>
+      <a data-nav="sobre-proyecto" href="#sobre-proyecto" role="link">📋 El Proyecto</a>
+    </nav>
+  </header>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  MAIN — Contenido principal                          ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <main id="contenido-principal">
+
+    <!-- ── SECCIÓN HERO / PORTADA ────────────────────────── -->
+    <section id="inicio" class="hero" aria-label="Portada del sitio">
+
+      <!-- Video de fondo: sin sonido, en bucle infinito (decorativo) -->
+      <video class="hero__video" autoplay muted loop playsinline preload="auto"
+             poster="video/fondo-costa.jpg" aria-hidden="true" tabindex="-1">
+        <source src="video/fondo-costa.mp4" type="video/mp4">
+        <source src="video/fondo-costa.webm" type="video/webm">
+      </video>
+      <div class="hero__velo" aria-hidden="true"></div>
+
+      <!-- Elementos decorativos visuales (no informativos) -->
+      <div class="hero__deco" aria-hidden="true">
+        <div class="hero__deco-banda hero__deco-banda--amarillo"></div>
+        <div class="hero__deco-banda hero__deco-banda--azul"></div>
+        <div class="hero__deco-banda hero__deco-banda--rojo"></div>
+      </div>
+
+      <div class="hero__contenido contenedor">
+
+        <!-- Tagline -->
+        <span class="hero__tagline" aria-label="Proyecto de preservación cultural">
+          🎓 Proyecto UNEMI · Facultad de Ciencias e Ingeniería (FACI)
+        </span>
+
+        <!-- Título principal -->
+        <h1 class="hero__titulo">
+          Ecuador<br /><span>Patrimonio Vivo</span>
+        </h1>
+
+        <!-- Frase de impacto -->
+        <p class="hero__frase">
+          Un país donde cada volcán tiene un nombre sagrado, cada tejido cuenta una historia
+          y cada plato es un viaje a través del tiempo. <strong style="color: var(--color-amarillo);">Conócelo, valóralo, presérvalo.</strong>
+        </p>
+
+        <!-- Buscador principal -->
+        <div class="hero__buscador" role="search">
+          <div class="hero__buscador-wrap">
+            <span class="hero__buscador-icono" aria-hidden="true">🔍</span>
+            <label for="buscador" class="sr-only" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);">
+              Buscar lugar, provincia o región
+            </label>
+            <input
+              type="search"
+              id="buscador"
+              name="busqueda"
+              placeholder="Busca un lugar, provincia o región..."
+              autocomplete="off"
+              aria-label="Buscar lugar turístico"
+            />
+            <button id="btn-limpiar-busqueda" aria-label="Limpiar búsqueda" title="Limpiar">✕</button>
+          </div>
+        </div>
+
+        <!-- Botones principales -->
+        <div class="hero__ctas">
+          <button class="btn btn--primario" id="btn-aleatorio" aria-label="Descubrir un lugar turístico al azar">
+            🎲 Lugar aleatorio
+          </button>
+          <a href="#explorar" data-nav="explorar" class="btn btn--fantasma" role="link">
+            Explorar todos →
+          </a>
+        </div>
+
+        <!-- Chips de regiones rápidas -->
+        <div class="hero__regiones" role="navigation" aria-label="Acceso rápido por región">
+          <a class="hero__region-chip" href="#explorar" data-region-chip="Costa" role="link" aria-label="Ver lugares de la Costa">
+            🌊 Costa
+          </a>
+          <a class="hero__region-chip" href="#explorar" data-region-chip="Sierra" role="link" aria-label="Ver lugares de la Sierra">
+            🏔️ Sierra
+          </a>
+          <a class="hero__region-chip" href="#explorar" data-region-chip="Amazonía" role="link" aria-label="Ver lugares de la Amazonía">
+            🌿 Amazonía
+          </a>
+          <a class="hero__region-chip" href="#explorar" data-region-chip="Insular" role="link" aria-label="Ver lugares de la Región Insular">
+            🐢 Insular
+          </a>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="hero__stats" aria-label="Estadísticas del sitio">
+          <div class="hero__stat">
+            <span class="hero__stat-num" aria-label="48 lugares turísticos">48+</span>
+            <span class="hero__stat-label">Lugares</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" aria-label="24 provincias">24</span>
+            <span class="hero__stat-label">Provincias</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" aria-label="4 regiones">4</span>
+            <span class="hero__stat-label">Regiones</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" aria-label="Patrimonio inmaterial">∞</span>
+            <span class="hero__stat-label">Patrimonio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN REGIONES (info visual) ───────────────── -->
+    <section id="regiones" class="seccion seccion--alt" aria-label="Las cuatro regiones del Ecuador">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Las 4 Regiones del Ecuador</h2>
+        <p class="seccion__subtitulo">
+          En un territorio tan diverso como el Ecuador, cada región guarda un patrimonio único forjado durante siglos.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+
+          <!-- Costa -->
+          <article style="border-radius: 1rem; overflow: hidden; background: var(--fondo-card); border: 1px solid var(--borde); box-shadow: 0 2px 12px var(--sombra);">
+            <div style="background: linear-gradient(135deg, var(--color-costa), #42a5f5); padding: 2rem 1.5rem; text-align: center;">
+              <span style="font-size: 3rem;" aria-hidden="true">🌊</span>
+              <h3 style="color: white; font-size: 1.4rem; margin-top: 0.5rem;">Costa</h3>
+            </div>
+            <div style="padding: 1.25rem 1.5rem;">
+              <p style="color: var(--texto-secundario); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+                Playas, manglares, cacao, marimba esmeraldeña y la calidez del Pacífico definen la identidad costeña. Siete provincias, un solo espíritu.
+              </p>
+              <p style="font-size: 0.82rem; color: var(--texto-suave);">
+                <strong>Provincias:</strong> Esmeraldas, Manabí, Santa Elena, Guayas, Los Ríos, El Oro, Santo Domingo de los Tsáchilas
+              </p>
+            </div>
+          </article>
+
+          <!-- Sierra -->
+          <article style="border-radius: 1rem; overflow: hidden; background: var(--fondo-card); border: 1px solid var(--borde); box-shadow: 0 2px 12px var(--sombra);">
+            <div style="background: linear-gradient(135deg, var(--color-sierra), #66bb6a); padding: 2rem 1.5rem; text-align: center;">
+              <span style="font-size: 3rem;" aria-hidden="true">🏔️</span>
+              <h3 style="color: white; font-size: 1.4rem; margin-top: 0.5rem;">Sierra</h3>
+            </div>
+            <div style="padding: 1.25rem 1.5rem;">
+              <p style="color: var(--texto-secundario); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+                Volcanes nevados, mercados indígenas, ciudades coloniales y carnavales de color componen el corazón andino del Ecuador.
+              </p>
+              <p style="font-size: 0.82rem; color: var(--texto-suave);">
+                <strong>Provincias:</strong> Carchi, Imbabura, Pichincha, Cotopaxi, Tungurahua, Bolívar, Chimborazo, Cañar, Azuay, Loja
+              </p>
+            </div>
+          </article>
+
+          <!-- Amazonía -->
+          <article style="border-radius: 1rem; overflow: hidden; background: var(--fondo-card); border: 1px solid var(--borde); box-shadow: 0 2px 12px var(--sombra);">
+            <div style="background: linear-gradient(135deg, var(--color-amazonia), #ffa726); padding: 2rem 1.5rem; text-align: center;">
+              <span style="font-size: 3rem;" aria-hidden="true">🌿</span>
+              <h3 style="color: white; font-size: 1.4rem; margin-top: 0.5rem;">Amazonía</h3>
+            </div>
+            <div style="padding: 1.25rem 1.5rem;">
+              <p style="color: var(--texto-secundario); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+                Pueblos originarios con saberes milenarios, selva virgen, ríos poderosos y una biodiversidad sin igual en el mundo.
+              </p>
+              <p style="font-size: 0.82rem; color: var(--texto-suave);">
+                <strong>Provincias:</strong> Sucumbíos, Napo, Orellana, Pastaza, Morona Santiago, Zamora Chinchipe
+              </p>
+            </div>
+          </article>
+
+          <!-- Insular -->
+          <article style="border-radius: 1rem; overflow: hidden; background: var(--fondo-card); border: 1px solid var(--borde); box-shadow: 0 2px 12px var(--sombra);">
+            <div style="background: linear-gradient(135deg, var(--color-insular), #00acc1); padding: 2rem 1.5rem; text-align: center;">
+              <span style="font-size: 3rem;" aria-hidden="true">🐢</span>
+              <h3 style="color: white; font-size: 1.4rem; margin-top: 0.5rem;">Insular</h3>
+            </div>
+            <div style="padding: 1.25rem 1.5rem;">
+              <p style="color: var(--texto-secundario); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+                Galápagos, laboratorio viviente de la evolución, Patrimonio Natural de la Humanidad y reserva marina irrepetible en el planeta.
+              </p>
+              <p style="font-size: 0.82rem; color: var(--texto-suave);">
+                <strong>Provincia:</strong> Galápagos (Isabela, Santa Cruz, San Cristóbal, Fernandina y más)
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN EXPLORAR ──────────────────────────────── -->
+    <section id="explorar" class="seccion" aria-label="Explorar lugares turísticos">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Explora los Destinos</h2>
+        <p class="seccion__subtitulo">
+          Filtra por región o provincia y descubre el patrimonio cultural detrás de cada destino.
+        </p>
+
+        <!-- FILTROS -->
+        <div class="filtros" role="search" aria-label="Filtros de búsqueda">
+          <div class="filtros__inner contenedor">
+
+            <!-- Filtro por región -->
+            <div class="filtros__regiones" role="group" aria-label="Filtrar por región">
+              <button class="btn-region activo" data-region="todas" aria-pressed="true">
+                🗺️ Todas
+              </button>
+              <button class="btn-region" data-region="Costa" aria-pressed="false">
+                🌊 Costa
+              </button>
+              <button class="btn-region" data-region="Sierra" aria-pressed="false">
+                🏔️ Sierra
+              </button>
+              <button class="btn-region" data-region="Amazonía" aria-pressed="false">
+                🌿 Amazonía
+              </button>
+              <button class="btn-region" data-region="Insular" aria-pressed="false">
+                🐢 Insular
+              </button>
+            </div>
+
+            <!-- Filtro por provincia -->
+            <div class="filtros__provincia">
+              <label for="select-provincia">📍 Provincia:</label>
+              <select id="select-provincia" aria-label="Filtrar por provincia">
+                <option value="todas">Todas las provincias</option>
+              </select>
+            </div>
+
+            <!-- Contador -->
+            <span id="contador-lugares" aria-live="polite" aria-atomic="true">
+              Cargando lugares...
+            </span>
+          </div>
+        </div>
+
+        <!-- GRID DE TARJETAS -->
+        <div
+          id="grid-lugares"
+          class="grid-lugares"
+          role="list"
+          aria-label="Lista de destinos turísticos"
+          aria-live="polite"
+        >
+          <!-- Las tarjetas se generan dinámicamente desde app.js -->
+          <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--texto-suave);">
+            <p>Cargando destinos...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN SOBRE EL PROYECTO ─────────────────────── -->
+    <section id="sobre-proyecto" class="seccion sobre-proyecto" aria-label="Sobre el proyecto">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Sobre el Proyecto</h2>
+        <p class="seccion__subtitulo">
+          Una iniciativa universitaria para preservar y difundir el patrimonio cultural del Ecuador.
+        </p>
+
+        <!-- El contenido se inyecta desde app.js (renderizarSobreProyecto) -->
+        <div id="sobre-proyecto-contenido">
+          <!-- Generado dinámicamente -->
+        </div>
+
+        <!-- Aviso académico -->
+        <div style="
+          margin-top: 2rem;
+          background: linear-gradient(135deg, rgba(0,61,165,0.07), rgba(255,215,0,0.05));
+          border: 1px solid rgba(0,61,165,0.15);
+          border-radius: 1rem;
+          padding: 1.5rem;
+          display: flex;
+          gap: 1rem;
+          align-items: flex-start;
+        ">
+          <span style="font-size: 1.8rem; flex-shrink: 0;" aria-hidden="true">📢</span>
+          <div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--texto-principal);">Aviso sobre el contenido</h4>
+            <p style="font-size: 0.88rem; color: var(--texto-secundario); line-height: 1.7;">
+              Este es un prototipo educativo (BETA). Los datos históricos y patrimoniales provienen de fuentes reconocidas,
+              pero los campos marcados como <strong>"POR VERIFICAR"</strong> deben ser revisados por el equipo antes de publicar.
+              Las fotografías de los lugares no están incluidas; deben ser aportadas por el equipo con sus respectivos créditos y licencias.
+              Los <strong>relatos ilustrativos</strong> son ficticios y están claramente etiquetados; deben reemplazarse con
+              testimonios reales recopilados en campo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  FOOTER                                              ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <footer class="footer" role="contentinfo">
+    <div class="contenedor">
+      <div class="footer__grid">
+
+        <!-- Columna 1: Identidad -->
+        <div class="footer__col">
+          <h3 class="footer__col-titulo">🌿 Ecuador Patrimonio Vivo</h3>
+          <p>
+            Plataforma educativa para la preservación y difusión del
+            patrimonio cultural ecuatoriano, desarrollada como proyecto
+            académico de la UNEMI (FACI).
+          </p>
+          <div class="footer__bandera" aria-label="Bandera del Ecuador" style="margin-top: 1rem;">
+            <div class="footer__bandera-banda"></div>
+            <div class="footer__bandera-banda"></div>
+            <div class="footer__bandera-banda"></div>
+          </div>
+        </div>
+
+        <!-- Columna 2: Regiones -->
+        <div class="footer__col">
+          <h3 class="footer__col-titulo">Regiones</h3>
+          <ul>
+            <li><a href="#explorar" data-region-chip="Costa">🌊 Costa</a></li>
+            <li><a href="#explorar" data-region-chip="Sierra">🏔️ Sierra</a></li>
+            <li><a href="#explorar" data-region-chip="Amazonía">🌿 Amazonía</a></li>
+            <li><a href="#explorar" data-region-chip="Insular">🐢 Insular (Galápagos)</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Patrimonio UNESCO -->
+        <div class="footer__col">
+          <h3 class="footer__col-titulo">Patrimonio UNESCO en Ecuador</h3>
+          <ul>
+            <li>🏛️ Centro Histórico de Quito (1978)</li>
+            <li>🐢 Islas Galápagos (1978)</li>
+            <li>🌿 Parque Nacional Sangay (1983)</li>
+            <li>🏛️ Centro Histórico de Cuenca (1999)</li>
+            <li>🎩 Sombrero de paja toquilla (2012)</li>
+            <li>🎶 Marimba esmeraldeña (2015)</li>
+            <li>🛤️ Qhapaq Ñan — Camino del Inca (2014)</li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Recursos -->
+        <div class="footer__col">
+          <h3 class="footer__col-titulo">Recursos</h3>
+          <ul>
+            <li>
+              <a href="https://educacion.gob.ec/cultura/" target="_blank" rel="noopener noreferrer">
+                Ministerio de Cultura y Patrimonio
+              </a>
+            </li>
+            <li>
+              <a href="https://servicios.turismo.gob.ec/" target="_blank" rel="noopener noreferrer">
+                Servicios de Turismo del Ecuador
+              </a>
+            </li>
+            <li>
+              <a href="https://ich.unesco.org" target="_blank" rel="noopener noreferrer">
+                UNESCO — Patrimonio Inmaterial
+              </a>
+            </li>
+            <li>
+              <a href="https://whc.unesco.org" target="_blank" rel="noopener noreferrer">
+                UNESCO — Patrimonio Mundial
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Institución -->
+      <div class="footer__institucion">
+        <div class="footer__logos">
+          <img src="img/logo-unemi.png" alt="Logotipo de la Universidad Estatal de Milagro (UNEMI)" width="88" height="88" loading="lazy">
+          <img src="img/logo-faci.png" alt="Logotipo de la Facultad de Ciencias e Ingeniería (FACI)" width="88" height="88" loading="lazy">
+        </div>
+        <div class="footer__institucion-texto">
+          <p class="footer__institucion-titulo">Proyecto académico de la Universidad Estatal de Milagro</p>
+          <p>
+            Desarrollado en la Facultad de Ciencias e Ingeniería (FACI), carrera de Tecnología de la Información,
+            por estudiantes del curso C3, grupo 2, tercer semestre.
+          </p>
+        </div>
+      </div>
+
+      <!-- Aviso de relatos -->
+      <div class="footer__aviso" role="note">
+        <strong>⚠️ Sobre los relatos ilustrativos:</strong>
+        Los relatos de moradores marcados como "Relato ilustrativo" son ficticios y tienen fines exclusivamente demostrativos.
+        No representan testimonios reales. Deben ser reemplazados con historias auténticas recopiladas en campo,
+        con el consentimiento de sus narradores, antes de publicar la versión definitiva del sitio.
+      </div>
+
+      <!-- Pie del footer -->
+      <div class="footer__base">
+        <p>
+          &copy; 2026 Ecuador Patrimonio Vivo · UNEMI · FACI · Curso C3, Grupo 2
+        </p>
+        <p>
+          Hecho con ❤️ en Ecuador &nbsp;
+          <span style="opacity: 0.6;">· Solo HTML5, CSS3, JavaScript vanilla</span>
+        </p>
+        <div class="footer__bandera" aria-hidden="true">
+          <div class="footer__bandera-banda"></div>
+          <div class="footer__bandera-banda"></div>
+          <div class="footer__bandera-banda"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  MODAL — Detalle de lugar turístico                  ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <div
+    id="modal-overlay"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-titulo"
+    aria-hidden="true"
+  >
+    <div class="modal" id="modal">
+      <!-- Botón cerrar -->
+      <button
+        class="modal__cerrar"
+        id="modal-cerrar"
+        aria-label="Cerrar ficha del lugar"
+        title="Cerrar"
+      >✕</button>
+
+      <!-- El contenido del modal se inyecta desde app.js -->
+      <div id="modal-contenido">
+        <!-- Generado dinámicamente al hacer clic en una tarjeta -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  BOTÓN "IR ARRIBA"                                   ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <button
+    id="btn-arriba"
+    class="btn-arriba"
+    aria-label="Volver al inicio de la página"
+    title="Ir arriba"
+  >↑</button>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  SCRIPTS — Cargar datos primero, luego la lógica     ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <!-- data.js DEBE cargarse antes que app.js -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/imagenes.js"></script>
+
+  <!-- Script inline para los chips de región del hero -->
+  <script>
+    /**
+     * Conecta los chips de región del hero y los enlaces del footer
+     * con los filtros de la sección Explorar.
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      // Chips del hero y footer que tienen data-region-chip
+      document.querySelectorAll("[data-region-chip]").forEach(chip => {
+        chip.addEventListener("click", (e) => {
+          e.preventDefault();
+          const region = chip.getAttribute("data-region-chip");
+
+          // Actualizar estado
+          Estado.regionActiva = region;
+          Estado.provinciaActiva = "todas";
+
+          // Activar el botón de región correspondiente en los filtros
+          document.querySelectorAll("[data-region]").forEach(btn => {
+            btn.classList.toggle("activo", btn.getAttribute("data-region") === region);
+          });
+
+          // Reconstruir provincias y aplicar filtros
+          construirSelectorProvincias();
+          aplicarFiltros();
+
+          // Scroll a la sección explorar
+          document.getElementById("explorar")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      // Actualizar aria-pressed en botones de región al hacer clic
+      document.querySelectorAll("[data-region]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll("[data-region]").forEach(b => {
+            b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

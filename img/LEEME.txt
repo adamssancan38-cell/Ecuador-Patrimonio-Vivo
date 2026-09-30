@@ -1,0 +1,58 @@
+═══════════════════════════════════════════════════════════
+  CARPETA img/ — Ecuador Patrimonio Vivo
+═══════════════════════════════════════════════════════════
+
+INSTRUCCIONES PARA EL EQUIPO:
+──────────────────────────────
+1. Coloca aquí las fotografías de cada lugar turístico.
+2. Usa nombres de archivo en minúsculas, sin espacios ni tildes.
+   Ejemplo: cotopaxi.jpg, otavalo.jpg, galapagos-santa-cruz.jpg
+
+3. En js/data.js, busca el lugar correspondiente y completa:
+      imagen:        "img/nombre-del-archivo.jpg"
+      creditoImagen: "Nombre del fotógrafo / Fuente"
+      licencia:      "CC BY 4.0 / Dominio público / etc."
+
+4. Formatos recomendados: JPG o WebP
+5. Tamaño recomendado: 1200×800 px como mínimo, optimizadas para web.
+   Puedes usar squoosh.app para comprimir sin perder calidad.
+
+NOMBRES DE ARCHIVO SUGERIDOS (uno por lugar en data.js):
+─────────────────────────────────────────────────────────
+  atacames.jpg            mompiche.jpg
+  machalilla.jpg          montecristi.jpg
+  salinas.jpg             montanita.jpg
+  malecon2000.jpg         santay.jpg
+  vinces.jpg              ruta-cacao.jpg
+  zaruma.jpg              jambeli.jpg
+  tsachilas.jpg           toachi.jpg
+  el-angel.jpg            laguna-verde.jpg
+  otavalo.jpg             cuicocha.jpg
+  quito-centro.jpg        mitad-mundo.jpg
+  cotopaxi.jpg            quilotoa.jpg
+  banos.jpg               pailon-diablo.jpg
+  salinas-guaranda.jpg    guaranda.jpg
+  chimborazo.jpg          nariz-diablo.jpg
+  ingapirca.jpg           culebrillas.jpg
+  cuenca-centro.jpg       cajas.jpg
+  vilcabamba.jpg          saraguro.jpg
+  cuyabeno.jpg            san-rafael.jpg
+  jumandy.jpg             papallacta.jpg
+  yasuni.jpg              coca.jpg
+  puyo.jpg                omaere.jpg
+  macas.jpg               sangay.jpg
+  podocarpus.jpg          tapichalaca.jpg
+  tortuga-bay.jpg         kicker-rock.jpg
+
+NOTA: si un lugar no tiene "imagen" en data.js, js/imagenes.js busca sola una
+ foto con licencia libre en Wikimedia Commons y muestra el crédito.
+ Para afinar la búsqueda agrega al lugar:  busquedaImagen: "texto"
+
+FUENTES DE IMÁGENES GRATUITAS Y LIBRES SUGERIDAS:
+──────────────────────────────────────────────────
+  - Wikimedia Commons: commons.wikimedia.org (busca "Ecuador" + lugar)
+  - Unsplash: unsplash.com (búsqueda en inglés, ej: "Ecuador mountains")
+  - Pexels: pexels.com
+  - Flickr (filtrar por Creative Commons)
+
+IMPORTANTE: Siempre anota el crédito del autor y el tipo de licencia.
