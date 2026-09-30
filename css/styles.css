@@ -826,6 +826,7 @@ h1, h2, h3, h4 {
   max-height: 90vh;
   max-height: 90dvh;
   overflow: hidden;           /* el scroll vive en #modal-contenido / .modal__info */
+  overflow: clip;             /* recorta igual, pero el navegador no puede desplazarlo solo */
   position: relative;
   box-shadow: 0 24px 64px rgba(0,0,0,0.35);
   transform: translateY(20px) scale(0.97);
@@ -1895,8 +1896,10 @@ h1, h2, h3, h4 {
 
 .resenas__estrellas { border: 0; min-width: 0; }
 .resenas__estrellas legend { font-size: 0.9rem; font-weight: 600; color: var(--texto-secundario); margin-bottom: var(--espacio-xs); }
-.resenas__estrellas-grupo { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: 2px; }
-.resenas__estrellas-grupo input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.resenas__estrellas-grupo { position: relative; display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: 2px; }
+/* El radio queda oculto pero anclado dentro de su fila (top/left 0): así, al
+   enfocarlo, el navegador NO mueve la ventana del modal para "traerlo a la vista". */
+.resenas__estrellas-grupo input { position: absolute; top: 0; left: 0; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
 .resenas__estrellas-grupo label {
   font-size: 2.2rem; line-height: 1; padding: 2px 3px; cursor: pointer;
   color: var(--estrella-off); transition: color 0.15s, transform 0.15s;
